@@ -18,7 +18,7 @@ To see the tinder-api-swagger.yaml documentation in action visit its GitHub Page
 ### Miscelaneous
 
 * Tinder charges more from people older than 30 years old.
-* Tinder uses no only uses the Google's captcha but also ones given by the company called [Arkose Labs](https://www.arkoselabs.com/).
+* Tinder uses no only the Google's captcha but also ones given by the company called [Arkose Labs](https://www.arkoselabs.com/).
 * In the not paid Tinder version you can like 100 people a day.
 * Tinder does not verify if your phone number is registered with them when you ask for an OTP code, they simply send the code.
 * Your account is linked with the phone number, not with the e-mail, not with your facebook account.
