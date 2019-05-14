@@ -13,7 +13,23 @@ In the following sections you'll find a detailed description of the main calls t
 
 ### How to use
 
-To see the tinder-api-swagger.yaml documentation in action you'll have to run 
+To see the tinder-api-swagger.yaml documentation in action visit its GitHub Page at [https://paolocarrara.github.io/tinder-api-documentation/](https://paolocarrara.github.io/tinder-api-documentation/#/).
+
+### Miscelaneous
+
+* Tinder charges more from people older than 30 years old.
+* Tinder uses no only uses the Google's captcha but also ones given by the company called [Arkose Labs](https://www.arkoselabs.com/).
+* In the not paid Tinder version you can like 100 people a day.
+* Tinder does not verify if your phone number is registered with them when you ask for an OTP code, they simply send the code.
+* Your account is linked with the phone number, not with the e-mail, not with your facebook account.
+* You cannot change your name, age and gender after registration.
+* The obvious one: rich and beauty people gain a lot of more likes. In a test, I registered as 43 years old doctor that worked in an very respected hospital where I live, no photo and a very minimal description. Around 30 womem matched with my profile and sent me messages starting the conversation. And don't even get me started with relates to girls, as a resume: one photo (beauty girl from internet), no description, resulting in hundreds of guys liking the profile, including lots of super likes.
+* You can change your location whitout paying for it, just use the ping api endpoint. I didn't bother to test how much you have to abuse it to get you trouble.
+* The maximum search radius is 100 miles (retarded units) or ~160 kilometers.
+* If they run low of people for you to like/dislike, they you leave you with a soft block with a timeout of 30 minutes.
+* Every button you click generates a event that is sent to Google analytics.
+* Needs to check but it seems that Tinder extract all uploaded image's metadata.
+* The marjority of the requests needs only the X-Auth-Token token to be sent.
 
 ## Like
 
