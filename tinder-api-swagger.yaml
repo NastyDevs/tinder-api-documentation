@@ -707,8 +707,8 @@ paths:
     servers:
       - url: https://api.gotinder.com
     get:
-      summary: Pass (dislike) a user
-      description: Pass (dislike) a user.
+      summary: Pass (dislike) an user
+      description: Pass (dislike) an user.
       tags:
         - name: Pass
       parameters:
