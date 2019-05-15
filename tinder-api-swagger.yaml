@@ -10228,18 +10228,18 @@ paths:
 
 # request header
 #Accept: application/json
-#app-session-id: c96a2ec9-c157-49d5-b12a-d422b141e60b
+#app-session-id: x
 #app-session-time-elapsed: 747826
 #app-version: 1020345
 #Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryVAm1WxzYc2R1TWRE
 #Origin: https://tinder.com
-#persistent-device-id: 26d7e302-4130-498f-a95a-d94512fe3f95
+#persistent-device-id: x
 #platform: web
 #Referer: https://tinder.com/
 #User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-#user-session-id: d973c423-0520-45db-b87f-15fff228e555
+#user-session-id: x
 #user-session-time-elapsed: 747826
-#X-Auth-Token: 81ce8875-819b-4bc4-8335-232e438cf96e
+#X-Auth-Token: x
 #x-supported-image-formats: webp,jpeg
 
 # Form data
