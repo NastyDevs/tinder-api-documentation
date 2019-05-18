@@ -56,7 +56,7 @@ https://www.facebook.com/centralparknyc/
 
 ## Like
 
-Endpoint: [https://api.gotinder.com/like/[tinder_user_id]](https://api.gotinder.com/like/[tinder_user_id])
+    https://api.gotinder.com/like/[tinder_user_id]
 
 #### GET
 
@@ -128,7 +128,7 @@ The request body is something still not fully undertood, what is the 'X-Padding'
 
 ## Pass (Dislike)
 
-Endpoint: https://api.gotinder.com/pass/[tinder_user_id]
+    https://api.gotinder.com/pass/[tinder_user_id]
 
 Call it to pass an user.
 In the Tinder app the pass action is performed every time you swipe left or touch/click in the red 'X' button.
@@ -162,7 +162,7 @@ In the Tinder app the pass action is performed every time you swipe left or touc
     }
 
 ## Recs Core
-https://api.gotinder.com/v2/recs/core?locale=en
+    https://api.gotinder.com/v2/recs/core?locale=en
 
 ### GET
 
