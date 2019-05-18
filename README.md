@@ -5,7 +5,9 @@
 
 ### Disclaimer
 
-This documentation is highly inspired in documentations alredy found at []. Even though they are very good I wanted to create one that was not only complete (with all the endpoints that I could gather) but documented following the OpenAPI standard and up to date.
+I do not work for Tinder or any of the companies listed in this document. This documentation is highly inspired in documentations already found at https://github.com/Tommy-42, https://gist.github.com/rtt/10403467, https://github.com/charliewolf/pynder/issues/141, https://github.com/Adewra/Tinder/blob/master/docs/Tinder%20API.apib, https://github.com/fbessez/Tinder/blob/master/README.md.
+
+Even though these documentations are very good I wanted to create one that was not only complete (with all the endpoints that I could gather) but documented following the OpenAPI standard and up to date.
 
 ### General
 
@@ -30,6 +32,20 @@ To see the tinder-api-swagger.yaml documentation in action visit its GitHub Page
 * Every button you click generates a event that is sent to Google analytics.
 * Needs to check but it seems that Tinder extract all uploaded image's metadata.
 * The marjority of the requests needs only the X-Auth-Token token to be sent.
+* They store all important information in the local storage.
+* If your sesssion exprires just use the refresh_token (local storage) to generate another one. The generation of a new token will lead to the generation of a new refresh_token, both are going to be returned in the response of the api call. The token has a life span of 24 hours.
+* If you register and deletes your account a number of times then you'll get a perma block (there is a tinder code for it, don't remember now).
+
+## Other references
+
+https://www.reddit.com/r/Tinder/comments/8aclhz/tinder_api_s_number/
+https://github.com/tarraschk/TinderAutoLike
+https://github.com/charliewolf/pynder
+https://github.com/jvenezia/tinderbot
+https://lurodrigo.com/2017/06/tinder-localizacao/
+https://techcrunch.com/2018/08/21/tinders-latest-feature-tinder-u-is-only-for-college-students/
+https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working/
+https://www.facebook.com/centralparknyc/
 
 ## Like
 
@@ -76,20 +92,22 @@ The is no required query parameter.
 
 ##### Response Header
 
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 844
-* content-type: application/json; charset=utf-8
-* date: Mon, 22 Apr 2019 04:14:32 GMT
-* status: 200
-* vary: Accept-Encoding, Origin
-* via: 1.1 eae9588c80b212b9c41c2d16b13586fe.cloudfront.net (CloudFront)
-* x-amz-cf-id: vHroTpDBPuyZUCaaHOTEju-Dn0F7D2BVsk35vEH22DeCx8GBoiMq_Q==
-* x-cache: Miss from cloudfront
-* x-request-id: 007t9a7rfct4e5u2nudg
+    {
+        access-control-allow-credentials: true
+        access-control-allow-headers: "Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id"
+        access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS,
+        access-control-allow-origin: "https://tinder.com",
+        content-encoding: "gzip",
+        content-length: 844,
+        content-type: "application/json; charset=utf-8",
+        date: "Mon, 22 Apr 2019 04:14:32 GMT",
+        status: 200,
+        vary: "Accept-Encoding, Origin",
+        via: "1.1 eae9588c80b212b9c41c2d16b13586fe.cloudfront.net (CloudFront)",
+        x-amz-cf-id: "vHroTpDBPuyZUCaaHOTEju-Dn0F7D2BVsk35vEH22DeCx8GBoiMq_Q==",
+        x-cache: "Miss from cloudfront",
+        x-request-id: "007t9a7rfct4e5u2nudg"
+    }
 
 ##### Response Body
 
@@ -103,7 +121,7 @@ The request body is something still not fully undertood, what is the 'X-Padding'
 
 ## Pass (Dislike)
 
-endpoint: https://api.gotinder.com/pass/[tinder_user_id]
+Endpoint: https://api.gotinder.com/pass/[tinder_user_id]
 
 Call it to pass an user.
 In the Tinder app the pass action is performed every time you swipe left or touch/click in the red 'X' button.
@@ -112,788 +130,29 @@ In the Tinder app the pass action is performed every time you swipe left or touc
 
 #### Request Header
 
-* Access-Control-Request-Headers: app-session-id,app-session-time-elapsed,app-version,persistent-device-id,platform,user-session-id,user-session-time-elapsed,x-auth-token,x-supported-image-formats
-* Access-Control-Request-Method: GET
-* Origin: https://tinder.com
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-
-#### Response Header
-
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* access-control-max-age: 1728000
-* date: Mon, 22 Apr 2019 04:13:47 GMT
-* status: 204
-* via: 1.1 eae9588c80b212b9c41c2d16b13586fe.cloudfront.net (CloudFront)
-* x-amz-cf-id: CSl6In0QRBzUXKtJZ1ZkDVXQSpa5e_Fmo9Hm7TF4AUOxIUELmbgq_A==
-* x-cache: Miss from cloudfront
-* x-request-id: 007sshvqck4upbk2cvdg
-
-## Photos
-
-https://api.gotinder.com/profile/photos
-
-### GET
-
-?locale=en
-
-#### Request Header
-
-* Accept: application/json
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 37
-* app-version: 1020343
-* Origin: https://tinder.com
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* user-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* user-session-time-elapsed: 37
-* X-Auth-Token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* x-supported-image-formats: webp,jpeg
-
-#### Response Header
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 328
-* content-type: application/json; charset=utf-8
-* date: Mon, 22 Apr 2019 06:49:56 GMT
-* status: 200
-* vary: Accept-Encoding
-* via: 1.1 711a8067bc4b9bfebe2e946c6bc0c96f.cloudfront.net (CloudFront)
-* x-amz-cf-id: HB3xGlaD59DMGDhO2CYpyA2-Qr-oyv2qclJdvKV3RXBEzGPbxcZH2Q==
-* x-cache: Miss from cloudfront
-* x-request-id: 007vgt9pqdbcti0559lg
-
-#### Response body
-    {  
-        "photos":[  
-            {  
-                "id":"0713e2f4-d1d3-44ba-a4e7-50725e98aa59",
-                "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/1080x1080_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                "fileName":"0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                "extension":"jpg",
-                "fbId":"directupload",
-                "processedFiles":[  
-                    {  
-                    "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/640x640_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                    "height":640,
-                    "width":640
-                    },
-                    {  
-                    "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/320x320_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                    "height":320,
-                    "width":320
-                    },
-                    {  
-                    "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/172x172_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                    "height":172,
-                    "width":172
-                    },
-                    {  
-                    "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/84x84_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                    "height":84,
-                    "width":84
-                    }
-                ],
-                "crop_info":{  
-                    "processed_by_bullseye":true,
-                    "user_customized":false
-                }
-            }
-        ],
-        "photos_processing":false
-    }
-
-## Auth (POST)
-url: https://api.gotinder.com/v2/auth/login/sms?locale=en
-
-### POST
-
-#### Request Header
-* Accept: application/json
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 349427
-* app-version: 1020344
-* content-type: application/json
-* install-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* Origin: https://tinder.com
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* user-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* user-session-time-elapsed: 349427
-* x-supported-image-formats: webp,jpeg
-
-#### Request body
     {
-        phone_number: "[registered_phone_number]",
-        refresh_token: "eyJhbGciOiJIUzI1NiJ9.NTUxMTk1NDkyMzkxMA._sfzTwgdCDHbHgv5gcrlod9ec499hLTGnHJ5yv21lSc"
-    }
-
-
-#### Response Header
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 226
-* content-type: application/json; charset=utf-8
-* date: Fri, 26 Apr 2019 06:07:04 GMT
-* status: 200
-* vary: Accept-Encoding
-* via: 1.1 fa21836b5bf2fcc46893f53506378fc5.cloudfront.net (CloudFront)
-* x-amz-cf-id: x_5RvJYjRnx0DZpPkD_jB6tXXQhwZef05MLIISHAYnlNgy2cxVXnLQ==
-* x-cache: Miss from cloudfront
-* x-request-id: 00ah4c5cvpbma053eq20
-
-#### Response body
-    {  
-        "meta":{  
-            "status":200
-        },
-        "data":{  
-            "_id":"5cb696f0a916a41f0003807c",
-            "api_token":"203fc0d4-9f7e-4daf-aef3-2c7ffd7e8e44",
-            "refresh_token":"eyJhbGciOiJIUzI1NiJ9.NTUxMTk1NDkyMzkxMA._sfzTwgdCDHbHgv5gcrlod9ec499hLTGnHJ5yv21lSc",
-            "is_new_user":false
-        }
-    }
-
-## SMS Send
-https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=en
-
-### POST
-
-#### Request Header
-* Accept: application/json
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 983091
-* app-version: 1020344
-* Content-Type: application/json
-* install-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* Origin: https://tinder.com
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* user-session-id: null
-* user-session-time-elapsed: 31868
-* X-Auth-Token: 
-* x-supported-image-formats: webp,jpeg
-
-#### Request Body
-    {
-        "phone_number": "[registered_phone_number]"
+        Access-Control-Request-Headers: "app-session-id,app-session-time-elapsed,app-version,persistent-device-id,platform,user-session-id,user-session-time-elapsed,x-auth-token,x-supported-image-formats",
+        Access-Control-Request-Method: "GET",
+        Origin: "https://tinder.com",
+        Referer: "https://tinder.com/",
+        User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
     }
 
 #### Response Header
-
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 85
-* content-type: application/json; charset=utf-8
-* date: Fri, 26 Apr 2019 06:17:38 GMT
-* status: 200
-* vary: Accept-Encoding
-* via: 1.1 fa21836b5bf2fcc46893f53506378fc5.cloudfront.net (CloudFront)
-* x-amz-cf-id: kcAg6kV5W5rh7e8vssYIs_1B64YBFNqtB5XMD--7wQgIfhoZv9A4Sg==
-* x-cache: Miss from cloudfront
-* x-request-id: 00aheq9hnhakqnu6c2fg
-
-#### Response Body
 
     {
-        "meta":{
-            "status":200
-        },
-        "data":{
-            "otp_length":6,
-            "sms_sent":true
-        }
+        access-control-allow-credentials: true,
+        access-control-allow-headers: "Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id",
+        access-control-allow-methods: "GET, POST, PUT, DELETE, OPTIONS",
+        access-control-allow-origin: "https://tinder.com",
+        access-control-max-age: 1728000,
+        date: "Mon, 22 Apr 2019 04:13:47 GMT",
+        status: 204,
+        via: "1.1 eae9588c80b212b9c41c2d16b13586fe.cloudfront.net (CloudFront)",
+        x-amz-cf-id: "CSl6In0QRBzUXKtJZ1ZkDVXQSpa5e_Fmo9Hm7TF4AUOxIUELmbgq_A==",
+        x-cache: "Miss from cloudfront",
+        x-request-id: 007sshvqck4upbk2cvdg
     }
-
-## SMS Validate
-https://api.gotinder.com/v2/auth/sms/validate?auth_type=sms&locale=en
-
-### POST
-
-#### Request Header
-* Accept: application/json
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 1041154
-* app-version: 1020344
-* Content-Type: application/json
-* install-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* Origin: https://tinder.com
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* user-session-id: null
-* user-session-time-elapsed: 89931
-* X-Auth-Token: 
-* x-supported-image-formats: webp,jpeg
-
-#### Request body
-    {
-        is_update: false
-        otp_code: "753895"
-        phone_number: "[registered_phone_number]"
-    }
-
-#### Response Header
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 167
-* content-type: application/json; charset=utf-8
-* date: Fri, 26 Apr 2019 06:18:36 GMT
-* status: 200
-* vary: Accept-Encoding
-* via: 1.1 fa21836b5bf2fcc46893f53506378fc5.cloudfront.net (CloudFront)
-* x-amz-cf-id: LlHMj0XXV0h80bbVB1LJeY3YbKUJUUrtiFI1mpm1mywd_4BOdHdC5A==
-* x-cache: Miss from cloudfront
-* x-request-id: 00ahf8bkof11dticr8p0
-
-#### Response Body
-    {
-        "meta": {
-            "status":200
-        },
-        "data": {
-            "refresh_token":"eyJhbGciOiJIUzI1NiJ9.NTUxMTk1NDkyMzkxMA.U6ONVdB8r_Uy6H6O5h6t1t1vnEoVaRzU2v7BZnnvuOo",
-            "validated":true
-        }
-    }
-
-## Generate
-https://api.gotinder.com/ws/generate?locale=en
-
-### GET
-
-#### Request Header
-
-* Accept: application/json
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 37
-* app-version: 1020343
-* Origin: https://tinder.com
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* user-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* user-session-time-elapsed: 37
-* X-Auth-Token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* x-supported-image-formats: webp,jpeg
-
-#### Response Header
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 75
-* content-type: application/json
-* date: Mon, 22 Apr 2019 06:49:57 GMT
-* status: 200
-* vary: Accept-Encoding, Origin
-* via: 1.1 711a8067bc4b9bfebe2e946c6bc0c96f.cloudfront.net (CloudFront)
-* x-amz-cf-id: KrvyaOiVP5R-zbeO7W23itCSc8U72jmjrTodChOjcEDXn_p5gGISSA==
-* x-cache: Miss from cloudfront
-* x-request-id: 007vb96b82p6vvepqj2g
-
-#### Response body
-    {
-        "token": "ba626b5b-7311-48ee-8df3-45f03a137c6b"
-    }
-
-
-## Image
-
-### GET
-https://images-ssl.gotinder.com/5c008ba99496ea0733dba4fe/640x800_f9eb41ef-81e4-4610-8148-da5a89083526.jpg
-https://images-ssl.gotinder.com/[user_id]/[photo_dimensions]_[phto_id].jpg
-
-#### Request Header
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-
-
-#### Response Header
-* Accept-Ranges: bytes
-* Connection: keep-alive
-* Content-Length: 52479
-* Content-Type: image/jpeg
-* Date: Mon, 22 Apr 2019 04:16:42 GMT
-* ETag: "3f78a102b4057338457ec3b7376c31f0"
-* Last-Modified: Mon, 07 Jan 2019 06:11:04 GMT
-* Server: AmazonS3
-* x-amz-id-2: 8AxxlB70vQcsvI/3NU2GzZ6vhJ4Iqhnvwp6NEIxnmOuotSXq6SANyym51rzuXmvjyoU5TEHkdCA=
-* x-amz-request-id: 0562F34A6C6A3C9F
-
-#### Response Body
-[IMAGE]
-
-## Updates
-https://api.gotinder.com/updates?locale=en
-
-### POST
-
-#### RequestHeader
-
-* Accept: application/json
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 739804
-* app-version: 1020343
-* Content-Type: application/json
-* Origin: https://tinder.com
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* user-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* user-session-time-elapsed: 713514
-* X-Auth-Token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* x-supported-image-formats: webp,jpeg
-
-#### Request Payload
-    {
-        "nudge": false,
-        "last_activity_date": "2019-04-17T03:01:11.250Z"
-    }
-
-#### Response Header
-
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 202
-* content-type: application/json;charset=utf-8
-* date: Mon, 22 Apr 2019 04:02:21 GMT
-* status: 200
-* via: 1.1 9dd6dc55203b2178ca54f703c56e817e.cloudfront.net (CloudFront)
-* x-amz-cf-id: P8-rDFcCxzKQQD9KGvQW6MbyKbWYL9Vtdmco70gQUAiMJztJUGI7qw==
-* x-cache: Miss from cloudfront
-* x-request-id: 007sts3sp3d5utjkhjmg
-
-#### Response Body
-
-    {
-        "matches":[],
-        "blocks":[],
-        "inbox":[],
-        "liked_messages":[],
-        "lists":[],
-        "goingout":[],
-        "deleted_lists":[],
-        "matchmaker":[],
-        "squads":[],
-        "last_activity_date":"2019-04-17T03:01:11.250Z",
-        "poll_interval": {
-            "standard":2000,
-            "persistent":60000},
-            "places":{
-                "has_new":false
-            }
-    }
-
-## Keep Alive
-wss://keepalive.gotinder.com/ws?token=36c8c613-4f62-4fa0-aaff-182eae3d77c5
-
-### GET
-
-#### Request Header
-
-Host: keepalive.gotinder.com
-Connection: Upgrade
-Pragma: no-cache
-Cache-Control: no-cache
-Upgrade: websocket
-Origin: https://tinder.com
-Sec-WebSocket-Version: 13
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-Accept-Encoding: gzip, deflate, br
-Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7
-Sec-WebSocket-Key: x+XmcQKdjYF41NlTYpeSxQ==
-Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
-
-#### Response Header
-
-HTTP/1.1 101 Switching Protocols
-Date: Mon, 22 Apr 2019 04:02:20 GMT
-Connection: upgrade
-Upgrade: websocket
-Sec-WebSocket-Accept: iEWxUM4HjNCrfCL9YjF7gLslIRs=
-X-Request-ID: ba8cqnvjf4rtf7riing0
-
-## Batch Event (PUT)
-https://etl.tindersparks.com/v2/batch/event
-
-### METHOD
-
-#### Request Header
-
-* Content-Type: application/json
-* Origin: https://tinder.com
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-
-#### Request Payload
-
-    {
-        "events":[
-            {
-                "schema":"Recs.Rate",
-                "event":{
-                    "otherId":"5cbcf82a78d4ba15004781ed",
-                    "method":"BUTTON",
-                    "like":false,
-                    "superLike":false,
-                    "userTraveling":false,
-                    "teaserType":"job",
-                    "recTinderUStatus":"none",
-                    "tinderUEnabled":false
-                    "appSessionId":"1b216a8d-759e-4fc1-a8cd-e6daafb335e6"
-                    "appSessionTimeElapsed":739278,
-                    "deviceId":"107fc538-aef0-4525-9ba8-f9d964321f33",
-                    "ts":1555905740313,
-                    "userSessionId":"625235f1-1844-4a40-b446-232e51cb72fe",
-                    "userSessionTimeElapsed":712988,
-                    "age":28,
-                    "advertisingId":"",
-                    "anthemConnected":false,
-                    "appVersion":"web","authId":"466dfc3c-1c71-4f16-a4bf-b2d3c0282190",
-                    "birthday":641016132542,
-                    "gender":0,
-                    "dataProvider":"",
-                    "manu":"",
-                    "model":"",
-                    "osVersion":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
-                    "platform":4,
-                    "lat":-23.5546771,
-                    "lon":-46.632085000000004,
-                    "uid":"5cb696f0a916a41f0003807c"
-                }
-            },
-            {
-                "schema":"Recs.View",
-                "event":{
-                    "otherId":"5cbce0bcfa362e1500221ec4",
-                    "teaserValue":"","appSessionId":"1b216a8d-759e-4fc1-a8cd-e6daafb335e6","appSessionTimeElapsed":739287,"deviceId":"107fc538-aef0-4525-9ba8-f9d964321f33","ts":1555905740322,"userSessionId":"625235f1-1844-4a40-b446-232e51cb72fe",
-                    "userSessionTimeElapsed":712997,
-                    "age":28,
-                    "advertisingId":"",
-                    "anthemConnected":false,
-                    "appVersion":"web","authId":"466dfc3c-1c71-4f16-a4bf-b2d3c0282190",
-                    "birthday":641016132542,
-                    "gender":0,
-                    "dataProvider":"",
-                    "manu":"",
-                    "model":"",
-                    "osVersion":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
-                    "platform":4,
-                    "lat":-23.5546771,
-                    "lon":-46.632085000000004,
-                    "uid":"5cb696f0a916a41f0003807c"
-                }
-            },
-            {
-                "schema":"Websocket.Connect",
-                "event":{
-                    "appSessionId":"1b216a8d-759e-4fc1-a8cd-e6daafb335e6",
-                    "appSessionTimeElapsed":739808,
-                    "deviceId":"107fc538-aef0-4525-9ba8-f9d964321f33",
-                    "ts":1555905740843,
-                    "userSessionId":"625235f1-1844-4a40-b446-232e51cb72fe",
-                    "userSessionTimeElapsed":713518,
-                    "age":28,
-                    "advertisingId":"",
-                    "anthemConnected":false,
-                    "appVersion":"web",
-                    "authId":"466dfc3c-1c71-4f16-a4bf-b2d3c0282190",
-                    "birthday":641016132542,
-                    "gender":0,
-                    "dataProvider":"",
-                    "manu":"",
-                    "model":"",
-                    "osVersion":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
-                    "platform":4,
-                    "lat":-23.5546771,
-                    "lon":-46.632085000000004,
-                    "uid":"5cb696f0a916a41f0003807c",
-                    "connected":true,
-                    "connectAttempts":1
-                }
-            },
-            {
-                "schema":"Updates.Received",
-                "event":{
-                    "appSessionId":"1b216a8d-759e-4fc1-a8cd-e6daafb335e6",
-                    "appSessionTimeElapsed":740161,
-                    "deviceId":"107fc538-aef0-4525-9ba8-f9d964321f33",
-                    "ts":1555905741196,
-                    "userSessionId":"625235f1-1844-4a40-b446-232e51cb72fe",
-                    "userSessionTimeElapsed":713871,
-                    "age":28,
-                    "advertisingId":"",
-                    "anthemConnected":false,
-                    "appVersion":"web",
-                    "authId":"466dfc3c-1c71-4f16-a4bf-b2d3c0282190",
-                    "birthday":641016132542,
-                    "gender":0,
-                    "dataProvider":"",
-                    "manu":"",
-                    "model":"",
-                    "osVersion":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
-                    "platform":4,
-                    "lat":-23.5546Show more
-
-
-#### Response Header
-
-* access-control-allow-origin: *
-* Connection: keep-alive
-* content-encoding: gzip
-* Content-Length: 81
-* content-type: application/json;charset=utf-8
-* date: Mon, 22 Apr 2019 04:02:29 GMT
-* server: server
-
-#### Response Body
-    {
-        "status":200,
-        "message":"Event batch accepted",
-        "time":0
-    }
-
-## Profile Info - Self
-
-https://api.gotinder.com/v2/profile?include=account%2Cboost%2Cemail_settings%2Cinstagram%2Clikes%2Cnotifications%2Cplus_control%2Cproducts%2Cpurchase%2Cspotify%2Csuper_likes%2Ctinder_u%2Ctravel%2Ctutorials%2Cuser&locale=en
-
-### GET
-
-#### Request Header
-
-* Accept: application/json
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 782161
-* app-version: 1020343
-* Origin: https://tinder.com
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* user-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* user-session-time-elapsed: 755871
-* X-Auth-Token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* x-supported-image-formats: webp,jpeg
-
-#### Response Header
-
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 1189
-* content-type: application/json; charset=utf-8
-* date: Mon, 22 Apr 2019 04:03:04 GMT
-* status: 200
-* vary: Accept-Encoding
-* via: 1.1 9dd6dc55203b2178ca54f703c56e817e.cloudfront.net (CloudFront)
-* x-amz-cf-id: i_fxTC3FTiB3pXUEEKn5F0OIu-ybnSvoy-WZUszLGkVyd-VwNwxyMw==
-* x-cache: Miss from cloudfront
-* x-request-id: 0060cl48t7d0h0rdbgl0
-
-#### Response Body
-
-    {  
-    "meta":{  
-        "status":200
-    },
-    "data":{  
-        "account":{  
-            "is_email_verified":false,
-            "account_email":"[registered_email]",
-            "account_phone_number":"[registered_phone_number]"
-        },
-        "boost":{  
-            "duration":1800000,
-            "allotment":0,
-            "allotment_used":0,
-            "allotment_remaining":0,
-            "internal_remaining":0,
-            "purchased_remaining":0,
-            "remaining":0,
-            "boost_refresh_amount":1,
-            "boost_refresh_interval":1,
-            "boost_refresh_interval_unit":"m",
-            "purchases":[  
-
-            ]
-        },
-        "email_settings":{  
-            "email":"[registered_email]",
-            "email_settings":{  
-                "promotions":true,
-                "messages":true,
-                "new_matches":true
-            }
-        },
-        "instagram":{  
-
-        },
-        "likes":{  
-            "likes_remaining":100
-        },
-        "notifications":[  
-
-        ],
-        "plus_control":{  
-
-        },
-        "products":{  
-
-        },
-        "purchase":{  
-            "purchases":[  
-
-            ],
-            "subscription_expired":false
-        },
-        "spotify":{  
-            "spotify_connected":false
-        },
-        "super_likes":{  
-            "remaining":1,
-            "alc_remaining":0,
-            "new_alc_remaining":0,
-            "allotment":1,
-            "superlike_refresh_amount":5,
-            "superlike_refresh_interval":1,
-            "superlike_refresh_interval_unit":"d",
-            "resets_at":null
-        },
-        "tinder_u":{  
-            "status":"ineligible"
-        },
-        "travel":{  
-            "is_traveling":false
-        },
-        "tutorials":[  
-            "super_like_action",
-            "profile_verified",
-            "boost_tutorial",
-            "welcome_screen",
-            "message_standards",
-            "edit_info_animation",
-            "card_stack_nudge_action",
-            "reactions_announcement",
-            "reactions_tooltip",
-            "super_likeable",
-            "places_onboarding",
-            "places_edit_place_tooltip",
-            "places_toggle_tooltip",
-            "places_swipe_tutorial",
-            "places_accuracy_survey",
-            "places_not_now_survey",
-            "loops_intro",
-            "loops_new_media_selector",
-            "loops_filter_video",
-            "top_picks_toggle_tooltip",
-            "bitmoji_intro",
-            "bitmoji_tooltip",
-            "top_picks_intro",
-            "tinder_u_intro",
-            "vinyl_tooltip",
-            "match_sort_tooltip"
-        ],
-        "user":{  
-            "_id":"5cb696f0a916a41f0003807c",
-            "age_filter_max":38,
-            "age_filter_min":18,
-            "birth_date":"1990-04-25T04:03:04.136Z",
-            "create_date":"2019-04-17T03:01:04.139Z",
-            "crm_id":"7517835dec24f9286334d00ba007b77b98b77e2a",
-            "discoverable":true,
-            "distance_filter":50,
-            "gender":0,
-            "gender_filter":1,
-            "show_gender_on_profile":false,
-            "name":"[registered_name]",
-            "photos":[  
-                {  
-                "id":"0713e2f4-d1d3-44ba-a4e7-50725e98aa59",
-                "crop_info":{  
-                    "processed_by_bullseye":true,
-                    "user_customized":false
-                },
-                "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/1080x1080_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                "fbId":"directupload",
-                "processedFiles":[  
-                    {  
-                        "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/640x640_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                        "height":640,
-                        "width":640
-                    },
-                    {  
-                        "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/320x320_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                        "height":320,
-                        "width":320
-                    },
-                    {  
-                        "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/172x172_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                        "height":172,
-                        "width":172
-                    },
-                    {  
-                        "url":"https://images-ssl.gotinder.com/5cb696f0a916a41f0003807c/84x84_0713e2f4-d1d3-44ba-a4e7-50725e98aa59.jpg",
-                        "height":84,
-                        "width":84
-                    }
-                ]
-                }
-            ],
-            "photos_processing":false,
-            "photo_optimizer_enabled":true,
-            "ping_time":"2019-04-22T03:50:32.112Z",
-            "schools":[  
-
-            ],
-            "phone_id":"[registered_phone_number]",
-            "interested_in":[  
-                1
-            ],
-            "pos":{  
-                "lat":-23.5546735,
-                "lon":-46.632095299999996
-            },
-            "autoplay_video":"always",
-            "top_picks_discoverable":true,
-            "photo_tagging_enabled":false,
-            "snapchat_connected":false
-        }
-    }
-    }
-
 
 ## Recs Core
 https://api.gotinder.com/v2/recs/core?locale=en
