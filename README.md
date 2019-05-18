@@ -5,7 +5,8 @@
 
 ### Disclaimer
 
-I do not work for Tinder or any of the companies listed in this document. This documentation is highly inspired in documentations already found at [https://github.com/Tommy-42] [https://gist.github.com/rtt/10403467] [https://github.com/charliewolf/pynder/issues/141] [https://github.com/Adewra/Tinder/blob/master/docs/Tinder%20API.apib] [https://github.com/fbessez/Tinder/blob/master/README.md]
+I do not work for Tinder or any of the companies listed in this document. This documentation is highly inspired in documentations already found at
+[https://github.com/Tommy-42](https://github.com/Tommy-42), [https://gist.github.com/rtt/10403467](https://gist.github.com/rtt/10403467), [https://github.com/charliewolf/pynder/issues/141](https://github.com/charliewolf/pynder/issues/141), [https://github.com/Adewra/Tinder/blob/master/docs/Tinder%20API.apib](https://github.com/Adewra/Tinder/blob/master/docs/Tinder%20API.apib), [https://github.com/fbessez/Tinder/blob/master/README.md](https://github.com/fbessez/Tinder/blob/master/README.md).
 
 Even though these documents are very good, I wanted to create one that was not only up to date and complete (all the endpoints that I could gather) but also documented following the OpenAPI standard.
 
@@ -38,23 +39,25 @@ To see the tinder-api-swagger.yaml documentation in action visit its GitHub Page
 
 ## Other references
 
-https://www.reddit.com/r/Tinder/comments/8aclhz/tinder_api_s_number/
+[https://www.reddit.com/r/Tinder/comments/8aclhz/tinder_api_s_number/](https://www.reddit.com/r/Tinder/comments/8aclhz/tinder_api_s_number/)
 
-https://github.com/tarraschk/TinderAutoLike
+[https://github.com/tarraschk/TinderAutoLike](https://github.com/tarraschk/TinderAutoLike)
 
-https://github.com/charliewolf/pynder
+[https://github.com/charliewolf/pynder](https://github.com/charliewolf/pynder)
 
-https://github.com/jvenezia/tinderbot
+[https://github.com/jvenezia/tinderbot](https://github.com/jvenezia/tinderbot)
 
-https://lurodrigo.com/2017/06/tinder-localizacao/
+[https://lurodrigo.com/2017/06/tinder-localizacao/](https://lurodrigo.com/2017/06/tinder-localizacao/)
 
-https://techcrunch.com/2018/08/21/tinders-latest-feature-tinder-u-is-only-for-college-students/
+[https://techcrunch.com/2018/08/21/tinders-latest-feature-tinder-u-is-only-for-college-students/](https://techcrunch.com/2018/08/21/tinders-latest-feature-tinder-u-is-only-for-college-students/)
 
-https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working/
+[https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working/](https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working/)
 
-https://www.facebook.com/centralparknyc/
+[https://www.facebook.com/centralparknyc/](https://www.facebook.com/centralparknyc/)
 
-## Like
+## Endpoints
+
+### Like
 
     https://api.gotinder.com/like/[tinder_user_id]
 
@@ -64,6 +67,7 @@ Call it to like a user.
 In the Tinder app the like action is performed every time you swipe right or click/touch the green 'Heart' button.
 
 ##### Request Header
+
 The required fields are: X-Auth-Token.
 
     {
@@ -83,6 +87,7 @@ The required fields are: X-Auth-Token.
     }
 
 ##### Request Parameters
+
 The required request params are: tinder_user_id.
 
     {
@@ -90,6 +95,7 @@ The required request params are: tinder_user_id.
     }
 
 ##### Request Query Parameters
+
 The is no required query parameter.
 
     {
@@ -126,14 +132,14 @@ The request body is something still not fully undertood, what is the 'X-Padding'
         "X-Padding":"{*meta*:{*code*:200,*requestId*:*59a45921351e3d43b07028b5*},*response*:{*venue*:{*id*:*412d2800f964a520df0c1fe3*,*name*:*Central Park*,*contact*:{*phone*:*2123106600*,*formattedPhone*:*(212) 310-6600*,*twitter*:*centralparknyc*,*instagram*:*centralparknyc*,*facebook*:*37965424481*,*facebookUsername*:*centralparknyc*,*facebookName*:*Central Park*},*location*:{*address*:*59th St to 110th St*,*crossStreet*:*5th Ave to Central Park West*,*lat*:40.78408342593807,*lng*:-73.96485328674316,*postalCode*:*10028*,*cc*:*US*,*city*:*New York*,*state*:*NY*,*country*:*United States*,*formattedAddress*:[*59th St to 110th St (5th Ave to Central Park West)*,*New York, NY 10028*,*United States*]},*canonicalUrl*:*https://foursquare.com/v/central-park/412d2800f964a520df0c1fe3*,*categories*:[{*id*:*4bf58dd8d48988d163941735*,*name*:*Park*,*pluralName*:*Parks*,*shortName*:*Park*,*icon*:{*prefix*:*https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_*,*suffix*:*.png*},*primary*:true}],*verified*:true,*stats*:{*checkinsCount*:364591,*usersCount*:311634,*tipCount*:1583,*visitsCount*:854553},*url*:*http://www.centralparknyc.org*,*likes*:{*count*:17370,*summary*:*17370 Likes*},*rating*:9.8,*ratingColor*:*00B551*,*ratingSignals*:18854,*beenHere*:{*count*:0,*unconfirmedCount*:0,*marked*:false,*lastCheckinExpiredAt*:0},*photos*:{*count*:26681,*groups*:[{*type*:*venue*,*name*:*Venue photos*,*count*:26681,*items*:[{*id*:*513bd223e4b0e8ef8292ee54*,*createdAt*:1362874915,*source*:{*name*:*Instagram*,*url*:*http:/"
     }
 
-## Pass (Dislike)
+### Pass (Dislike)
 
     https://api.gotinder.com/pass/[tinder_user_id]
 
 Call it to pass an user.
 In the Tinder app the pass action is performed every time you swipe left or touch/click in the red 'X' button.
 
-### GET
+#### GET
 
 #### Request Header
 
@@ -161,12 +167,14 @@ In the Tinder app the pass action is performed every time you swipe left or touc
         x-request-id: 007sshvqck4upbk2cvdg
     }
 
-## Recs Core
+### Recs Core
+
     https://api.gotinder.com/v2/recs/core?locale=en
 
-### GET
+#### GET
 
 #### Request Header
+
     {
         Accept: "application/json"
         Origin: "https://tinder.com",
@@ -184,6 +192,7 @@ In the Tinder app the pass action is performed every time you swipe left or touc
     }
 
 #### Response Header
+
     {
         access-control-allow-credentials: true,
         access-control-allow-headers: "Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id",
@@ -201,6 +210,7 @@ In the Tinder app the pass action is performed every time you swipe left or touc
     }
 
 #### Response Body
+
     {  
         "meta":{  
             "status":200
