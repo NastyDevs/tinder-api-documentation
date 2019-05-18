@@ -5,13 +5,13 @@
 
 ### Disclaimer
 
-I do not work for Tinder or any of the companies listed in this document. This documentation is highly inspired in documentations already found at https://github.com/Tommy-42, https://gist.github.com/rtt/10403467, https://github.com/charliewolf/pynder/issues/141, https://github.com/Adewra/Tinder/blob/master/docs/Tinder%20API.apib, https://github.com/fbessez/Tinder/blob/master/README.md.
+I do not work for Tinder or any of the companies listed in this document. This documentation is highly inspired in documentations already found at [https://github.com/Tommy-42] [https://gist.github.com/rtt/10403467] [https://github.com/charliewolf/pynder/issues/141] [https://github.com/Adewra/Tinder/blob/master/docs/Tinder%20API.apib] [https://github.com/fbessez/Tinder/blob/master/README.md]
 
-Even though these documentations are very good I wanted to create one that was not only complete (with all the endpoints that I could gather) but documented following the OpenAPI standard and up to date.
+Even though these documents are very good, I wanted to create one that was not only up to date and complete (all the endpoints that I could gather) but also documented following the OpenAPI standard.
 
 ### General
 
-In the following sections you'll find a detailed description of the main calls to the Tinder API (Like, Pass, Recomendations). The remaining API calls you can find in the tinder-api-swagger.yaml file.
+In the following sections you'll find a detailed description of the three main calls to the Tinder API (Like, Pass, Recomendations). The remaining API calls you can find in the tinder-api-swagger.yaml file.
 
 ### How to use
 
@@ -39,17 +39,24 @@ To see the tinder-api-swagger.yaml documentation in action visit its GitHub Page
 ## Other references
 
 https://www.reddit.com/r/Tinder/comments/8aclhz/tinder_api_s_number/
+
 https://github.com/tarraschk/TinderAutoLike
+
 https://github.com/charliewolf/pynder
+
 https://github.com/jvenezia/tinderbot
+
 https://lurodrigo.com/2017/06/tinder-localizacao/
+
 https://techcrunch.com/2018/08/21/tinders-latest-feature-tinder-u-is-only-for-college-students/
+
 https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working/
+
 https://www.facebook.com/centralparknyc/
 
 ## Like
 
-endpoint: [https://api.gotinder.com/like/[tinder_user_id]](https://api.gotinder.com/like/[tinder_user_id])
+Endpoint: [https://api.gotinder.com/like/[tinder_user_id]](https://api.gotinder.com/like/[tinder_user_id])
 
 #### GET
 
@@ -160,34 +167,38 @@ https://api.gotinder.com/v2/recs/core?locale=en
 ### GET
 
 #### Request Header
-* Accept: application/json
-* Origin: https://tinder.com
-* platform: web
-* Referer: https://tinder.com/
-* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-* x-supported-image-formats: webp,jpeg
-* user-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* user-session-time-elapsed: 1575424
-* X-Auth-Token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-* app-session-time-elapsed: 1601714
-* app-version: 1020343
-* persistent-device-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    {
+        Accept: "application/json"
+        Origin: "https://tinder.com",
+        platform: "web",
+        Referer: "https://tinder.com/",
+        User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
+        x-supported-image-formats: "webp,jpeg",
+        user-session-id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        user-session-time-elapsed: 1575424,
+        X-Auth-Token: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        app-session-id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        app-session-time-elapsed: 1601714,
+        app-version: 1020343,
+        persistent-device-id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
 
 #### Response Header
-* access-control-allow-credentials: true
-* access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-* access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-* access-control-allow-origin: https://tinder.com
-* content-encoding: gzip
-* content-length: 26749
-* content-type: application/json; charset=UTF-8
-* date: Mon, 22 Apr 2019 04:16:43 GMT
-* status: 200
-* via: 1.1 eae9588c80b212b9c41c2d16b13586fe.cloudfront.net (CloudFront)
-* x-amz-cf-id: kqyXnzFvYTu2rbq6e7QDcjMAhp6EXTMmUkHNvMm401kVPvXarXLb1Q==
-* x-cache: Miss from cloudfront
-* x-request-id: 007t55bcqdutqs79ds00
+    {
+        access-control-allow-credentials: true,
+        access-control-allow-headers: "Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id",
+        access-control-allow-methods: "GET, POST, PUT, DELETE, OPTIONS",
+        access-control-allow-origin: "https://tinder.com",
+        content-encoding: "gzip",
+        content-length: 26749,
+        content-type: "application/json; charset=UTF-8",
+        date: "Mon, 22 Apr 2019 04:16:43 GMT",
+        status: 200,
+        via: "1.1 eae9588c80b212b9c41c2d16b13586fe.cloudfront.net (CloudFront)",
+        x-amz-cf-id: "kqyXnzFvYTu2rbq6e7QDcjMAhp6EXTMmUkHNvMm401kVPvXarXLb1Q==",
+        x-cache: "Miss from cloudfront",
+        x-request-id: "007t55bcqdutqs79ds00"
+    }
 
 #### Response Body
     {  
