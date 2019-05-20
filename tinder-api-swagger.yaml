@@ -1664,21 +1664,47 @@ paths:
                         type: boolean
                         example: false
                 example:
-                  duration: 1800000
-                  allotment: 1
-                  allotment_used: 1
-                  allotment_remaining: 0
-                  internal_remaining: 0
-                  purchased_remaining: 0
-                  remaining: 0
-                  boost_refresh_amount: 1
-                  boost_refresh_interval: 1
-                  boost_refresh_interval_unit: m
-                  resets_at: 1560869111819
-                  consumed_from: 0
-                  expires_at: 1558278911821
-                  boost_id: 4ce16cf7a460c901108e7dca
-                  multiplier: 9.2
+                  status: 200
+                  results:
+                    connection_count: 0
+                    common_interests:
+                    _id: 57dd1e83f5bec39f48194e1d
+                    bio: My bio
+                    birth_date: '1984-05-22T15:11:58.587Z'
+                    name: User name
+                    ping_time: '2014-12-09T00:00:00.000Z'
+                    photos:
+                      - id: d127a410-ff04-4188-a646-0c7f76e967a8
+                        url: https://images-ssl.gotinder.com/57dd1e83f5bec39f48194e1d/1080x1080_d127a410-ff04-4188-a646-0c7f76e967a8.jpg
+                        fileName: d127a410-ff04-4188-a646-0c7f76e967a8.jpg
+                        extension: jpg
+                        processedFile:
+                          - url: https://images-ssl.gotinder.com/57dd1e83f5bec39f48194e1d/640x640_d127a410-ff04-4188-a646-0c7f76e967a8.jpg
+                            height: 640
+                            width: 640
+                        crop_info:  
+                          user:
+                            width_pct: 1
+                            x_offset_pct: 0
+                            height_pct: 0.8
+                            y_offset_pct: 0
+                          algo:  
+                            width_pct: 0.15143249928951263
+                            x_offset_pct: 0.4027365744113922
+                            height_pct: 0.15656615793704987
+                            y_offset_pct: 0.2428647130727768
+                          processed_by_bullseye: true
+                          user_customized: false
+                    jobs:
+                    schools:
+                    hide_age: false
+                    hide_distance: false
+                    gender: 1
+                    birth_date_info: fuzzy birthdate active, not displaying real birth_date,
+                    distance_mi: 7591
+                    common_connections:
+                    is_tinder_u: false
+
   /v2/auth/sms/send:
     servers:
       - url: https://api.gotinder.com
