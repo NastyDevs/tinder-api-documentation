@@ -1317,6 +1317,368 @@ paths:
                   expires_at: 1558278911821
                   boost_id: 4ce16cf7a460c901108e7dca
                   multiplier: 9.2
+  /user/{user_id}:
+    servers:
+      - url: https://api.gotinder.com
+    get:
+      summary: Gets a Tinder user profile.
+      description: Gets information about a Tinder user profile.
+      tags:
+        - name: User
+      parameters:
+        - name: user_id
+          in: path
+          description: The Tinder user id of the profile you want to get.
+          required: false
+          schema:
+            type: string
+        - name: locale
+          in: query
+          description: The locale that the request is being sent.
+          required: false
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          description: The Accept request HTTP header advertises which content types, expressed as MIME types, the client is able to understand. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
+          required: false
+          schema:
+            type: string
+        - name: app-session-id
+          in: header
+          description: TODO
+          required: false
+          schema:
+            type: string
+        - name: app-session-time-elapsed
+          in: header
+          description: Time, in milliseconds, elapsed since the app session creation.
+          required: false
+          schema:
+            type: number
+        - name: app-version
+          in: header
+          description: TODO
+          required: false
+          schema:
+            type: number
+        - name: Origin
+          in: header
+          description: The Origin request header indicates where a fetch originates from. It doesn't include any path information, but only the server name. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin)
+          required: false
+          schema:
+            type: string
+          example: https://tinder.com
+        - name: persistent-device-id
+          in: header
+          description: TODO
+          required: false
+          schema:
+            type: string
+        - name: platform
+          in: header
+          description: The platform that is being used to perform the request.
+          required: false
+          schema:
+            type: string
+        - name: Referer
+          in: header
+          description: The Referer request header contains the address of the previous web page from which a link to the currently requested page was followed. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer)
+          required: false
+          schema:
+            type: string
+        - name: User-Agent
+          in: header
+          description: The User-Agent request header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)
+          required: false
+          schema:
+            type: string
+        - name: user-session-id
+          in: header
+          description: TODO
+          required: false
+          schema:
+            type: string
+        - name: user-session-time-elapsed
+          in: header
+          description: Time, in milliseconds, elapsed since the user session creation.
+          required: false
+          schema:
+            type: string
+        - name: X-Auth-Token
+          in: header
+          description: Token received in the authentication process.
+          required: true
+          schema:
+            type: string
+        - name: x-supported-image-formats
+          in: header
+          description: TODO
+          required: false
+          schema:
+            type: string
+          example: webp,jpeg
+      responses:
+        200:
+          description: OK
+          headers:
+            Content-Type:
+              description: The Content-Type entity header is used to indicate the media type of the resource. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              description: The Content-Length entity header indicates the size of the entity-body, in bytes, sent to the recipient. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length)
+              schema:
+                type: string
+                example: 25
+            access-control-allow-credentials:
+              description: The Access-Control-Allow-Credentials response header tells browsers whether to expose the response to frontend JavaScript code when the request's credentials mode (Request.credentials) is "include". [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials)
+              schema:
+                type: boolean
+                example: true
+            Access-Control-Allow-Headers:
+              description: The Access-Control-Allow-Headers response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers)
+              schema:
+                type: string
+                example: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
+            Access-Control-Allow-Methods:
+              description: The Access-Control-Allow-Methods response header specifies the method or methods allowed when accessing the resource in response to a preflight request. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)
+              schema:
+                type: string
+                example: GET, POST, PUT, DELETE, OPTIONS
+            access-control-allow-origin:
+              description: The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)
+              schema:
+                type: string
+                example: https://tinder.com
+            Content-Encoding:
+              description: The Content-Encoding entity header is used to compress the media-type. When present, its value indicates which encodings were applied to the entity-body. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
+              schema:
+                type: string
+                example: gzip
+            Date:
+              description: The Date general HTTP header contains the date and time at which the message was originated. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date)
+              schema:
+                type: string
+                example: Mon, 29 Apr 2019 02:29:08 GMT
+            Vary:
+              description: The Vary HTTP response header determines how to match future request headers to decide whether a cached response can be used rather than requesting a fresh one from the origin server. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary)
+              schema:
+                type: string
+                example: Accept-Encoding,Origin
+            X-Request-ID:
+              description: TODO
+              schema:
+                type: string
+                example: 00af7teqbvf3q82is660
+            X-Cache:
+              description: TODO
+              schema:
+                type: string
+                example: Error from cloudfront
+            Via:
+              description: The Via general header is added by proxies, both forward and reverse proxies, and can appear in the request headers and the response headers. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Via)
+              schema:
+                type: string
+                example: 1.1 d07104e17906cf397b085b148825b3ed.cloudfront.net (CloudFront)
+            X-Amz-Cf-Id:
+              description: TODO
+              schema:
+                type: string
+                example: WZbbh7AT5sI6_lPxpjGDC7-vNpBcdfDnU-3RNpiQbGFRkA-bnoO14Q==
+            status:
+              description: TODO
+              schema:
+                type: number
+                example: 200
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    description: TODO
+                    type: number
+                    example: 200
+                  results:
+                    type: object
+                    properties:
+                      connection_count:
+                        description: TODO
+                        type: number
+                        example: 0
+                      common_interests:
+                        description: TODo
+                        type: array
+                        items:
+                          type: object
+                      _id:
+                        description: TODO
+                        type: string
+                        example: 27dd1f85f5bec48f52194f1c
+                      bio:
+                        description: TODO
+                        type: string
+                        example: My bio
+                      birth_date:
+                        description: TODO
+                        type: string
+                        example: '1984-05-21T15:11:58.587Z'
+                      name:
+                        description: TODO
+                        type: string
+                        example: Mokiniqui
+                      ping_time:
+                        description: TODO
+                        type: string
+                        example: '2014-12-09T00:00:00.000Z'
+                      photos:
+                        description: TODo
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              description: TODO
+                              type: string
+                              example: d117a110-ff04-4198-a647-0c7f76e965a8
+                            url:
+                              description: TODO
+                              type: string
+                              example: https://images-ssl.gotinder.com/27dd1f85f5bec48f52194f1c/1080x1080_d117a110-ff04-4198-a647-0c7f76e965a8.jpg
+                            fileName:
+                              description: TODO
+                              type: string
+                              example: d117a110-ff04-4198-a647-0c7f76e965a8.jpg
+                            extension:
+                              description: TODO
+                              type: string
+                              example: jpg
+                            processedFiles:
+                              description: TODO
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  url:
+                                    description: TODO
+                                    type: string
+                                  height:
+                                    description: TODO
+                                    type: number
+                                    example: 216
+                                  width:
+                                    description: TODO
+                                    type: number
+                                    example: 172
+                            crop_info:
+                              description: TODO
+                              type: object
+                              properties:
+                                user:
+                                  description: TODO
+                                  type: object
+                                  properties:
+                                    width_pct:
+                                      description: TODO
+                                      type: number
+                                      example: 1
+                                    x_offset_pct:
+                                      description: TODO
+                                      type: number
+                                      example: 0
+                                    height_pct:
+                                      description: TODO
+                                      type: number
+                                      example: 0.8
+                                    y_offset_pct:
+                                      description: TODO
+                                      type: number
+                                      example: 0
+                                alto:
+                                    description: TODO
+                                    type: object
+                                    properties:
+                                      width_pct:
+                                        description: TODO
+                                        type: number
+                                        example: 0.15143249928951263
+                                      x_offset_pct:
+                                        description: TODO
+                                        type: number
+                                        example: 0.4027365744113922
+                                      height_pct:
+                                        description: TODO
+                                        type: number
+                                        example: 0.15656615793704987
+                                      y_offset_pct:
+                                        description: TODO
+                                        type: number
+                                        example: 0.2428647130727768
+                                processed_by_bullseye:
+                                  description: TODO
+                                  type: boolean
+                                  example: true
+                                user_customized:
+                                  description: TODO
+                                  type: boolean
+                                  example: false
+                      jobs:
+                        description: TODO
+                        type: array
+                        items:
+                          type: object
+                      schools:
+                        description: TODO
+                        type: array
+                        items:
+                          type: object
+                      hide_age:
+                        description: TODO
+                        type: boolean
+                        example: false
+                      hide_distance:
+                        description: TODO
+                        type: boolean
+                        example: false
+                      gender:
+                        description: TODO
+                        type: boolean
+                        example: 1
+                      birth_date_info:
+                        description: TODO
+                        type: string
+                        example: fuzzy birthdate active, not displaying real birth_date
+                      distance_mi:
+                        description: TODO
+                        type: number
+                        example: 7591
+                      common_connections:
+                        description: TODO
+                        type: array
+                        items:
+                          type: object
+                      is_tinder_u:
+                        description: TODO
+                        type: boolean
+                        example: false
+                example:
+                  duration: 1800000
+                  allotment: 1
+                  allotment_used: 1
+                  allotment_remaining: 0
+                  internal_remaining: 0
+                  purchased_remaining: 0
+                  remaining: 0
+                  boost_refresh_amount: 1
+                  boost_refresh_interval: 1
+                  boost_refresh_interval_unit: m
+                  resets_at: 1560869111819
+                  consumed_from: 0
+                  expires_at: 1558278911821
+                  boost_id: 4ce16cf7a460c901108e7dca
+                  multiplier: 9.2
   /v2/auth/sms/send:
     servers:
       - url: https://api.gotinder.com
