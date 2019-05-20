@@ -1303,20 +1303,20 @@ paths:
                     example: number
                 example:
                   duration: 1800000
-                    allotment: 1
-                    allotment_used: 1
-                    allotment_remaining: 0
-                    internal_remaining: 0
-                    purchased_remaining: 0
-                    remaining: 0
-                    boost_refresh_amount: 1
-                    boost_refresh_interval: 1
-                    boost_refresh_interval_unit: m
-                    resets_at: 1560869111819
-                    consumed_from: 0
-                    expires_at: 1558278911821
-                    boost_id: 4ce16cf7a460c901108e7dca
-                    multiplier: 9.2
+                  allotment: 1
+                  allotment_used: 1
+                  allotment_remaining: 0
+                  internal_remaining: 0
+                  purchased_remaining: 0
+                  remaining: 0
+                  boost_refresh_amount: 1
+                  boost_refresh_interval: 1
+                  boost_refresh_interval_unit: m
+                  resets_at: 1560869111819
+                  consumed_from: 0
+                  expires_at: 1558278911821
+                  boost_id: 4ce16cf7a460c901108e7dca
+                  multiplier: 9.2
   /v2/auth/sms/send:
     servers:
       - url: https://api.gotinder.com
