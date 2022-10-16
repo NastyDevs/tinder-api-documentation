@@ -16,7 +16,7 @@ In the following sections you'll find a detailed description of the three main c
 
 ### How to use
 
-To see the tinder-api-swagger.yaml documentation in action visit its GitHub Page at [https://paolocarrara.github.io/tinder-api-documentation/](https://paolocarrara.github.io/tinder-api-documentation/#/).
+To see the tinder-api-swagger.yaml documentation in action visit its GitHub Page at [https://nastydevs.github.io/tinder-api-documentation/](https://nastydevs.github.io/tinder-api-documentation/).
 
 ### Miscelaneous
 
