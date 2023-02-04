@@ -2546,7 +2546,7 @@ paths:
             X-Cache:
               description: TODO
               schema:
-                string: string
+                type: string
                 example: Error from cloudfront
           content:
             application/json:
@@ -2755,7 +2755,7 @@ paths:
             X-Cache:
               description: TODO
               schema:
-                string: string
+                type: string
                 example: Error from cloudfront
           content:
             application/json:
@@ -8177,55 +8177,6 @@ paths:
           description: The locale that the request is being sent.
           schema:
             type: string
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: allow_email_marketing
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: birth_date
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: consents
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: email
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: gender
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: name
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: photos
         - name: Accept
           in: header
           description: The Accept request HTTP header advertises which content types, expressed as MIME types, the client is able to understand. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
@@ -8417,55 +8368,7 @@ paths:
           description: The locale that the request is being sent.
           schema:
             type: string
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: allow_email_marketing
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: birth_date
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
           example: consents
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: email
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: gender
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: name
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: photos
         - name: Accept
           in: header
           description: The Accept request HTTP header advertises which content types, expressed as MIME types, the client is able to understand. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
@@ -8674,9 +8577,9 @@ paths:
                             required:
                               description: TODO
                               type: boolean
-                    is_underage:
-                      description: TODO
-                      type: boolean
+                      is_underage:
+                        description: TODO
+                        type: boolean
                   meta:
                     description: TODO
                     type: object
@@ -8744,55 +8647,6 @@ paths:
           description: The locale that the request is being sent.
           schema:
             type: string
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: allow_email_marketing
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: birth_date
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: consents
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: email
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: gender
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: name
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: photos
         - name: Accept
           in: header
           description: The Accept request HTTP header advertises which content types, expressed as MIME types, the client is able to understand. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
@@ -9028,9 +8882,9 @@ paths:
                                   url:
                                     description: TODO
                                     type: string
-                    is_underage:
-                      description: TODO
-                      type: boolean
+                      is_underage:
+                        description: TODO
+                        type: boolean
                   meta:
                     description: TODO
                     type: object
@@ -9301,55 +9155,6 @@ paths:
           description: The locale that the request is being sent.
           schema:
             type: string
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: allow_email_marketing
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: birth_date
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: consents
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: email
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: gender
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: name
-        - name: requested
-          in: query
-          description: TODO
-          required: true
-          schema:
-            type: string
-          example: photos
         - name: Accept
           in: header
           description: The Accept request HTTP header advertises which content types, expressed as MIME types, the client is able to understand. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
