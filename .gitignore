@@ -1,0 +1,4 @@
+# Jetbrains IDE files
+.idea/
+# Api as json
+api.json
