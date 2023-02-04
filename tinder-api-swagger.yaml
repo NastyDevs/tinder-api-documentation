@@ -1233,62 +1233,7 @@ paths:
                     description: Boost duration in milliseconds.
                     type: number
                     example: 1800000
-                  allotment:
-                    description: TODO
-                    type: number
-                    example: 1
-                  allotment_used:
-                    description: TODO
-                    type: number
-                    example: 1
-                  allotment_remaining:
-                    description": TODO
-                    type: number
-                    example: 0
-                  internal_remaining:
-                    description: TODO
-                    type: number
-                    example: 0
-                  purchased_remaining:
-                    description: TODO
-                    type: number
-                    example: 0
-                  remaining:
-                    description: TODO
-                    type: number
-                    example: 0
-                  boost_refresh_amount:
-                    description: TODO
-                    type: number
-                    example: 1
-                  boost_refresh_interval:
-                    description: TODO
-                    type: number
-                    example: 1
-                  boost_refresh_interval_unit:
-                    description: TODO
-                    type: string
-                    example: m
-                  resets_at:
-                    description: TODO
-                    type: number
-                    example: 1560869111819
-                  consumed_from:
-                    description: TODO
-                    type: number
-                    example: 0
-                  expires_at:
-                    description: TODO
-                    type: number
-                    example: 1558278911821
-                  boost_id:
-                    description: TODO
-                    type: string
-                    example: 4ce16cf7a460c901108e7dca
-                  multiplier:
-                    description: TODO
-                    type: number
-                    example: number
+
   /user/{user_id}:
     servers:
       - url: https://api.gotinder.com
