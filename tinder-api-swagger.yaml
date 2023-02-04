@@ -7,26 +7,20 @@ info:
 
 servers:
   - url: https://api.gotinder.com
-    description: Main Tinder base endpoint
-  - url: https://etl.tindersparks.com
-    description: Statistics
-  - url: https://images-ssl.gotinder.com
-    description: Images API
+    description: Tinder base endpoint
 
 paths:
   /like/{user_id}:
     servers:
       - url: https://api.gotinder.com
     get:
-      tags:
-        - name: Like
       summary: Likes an user
       description: Likes an user.
       parameters:
         - name: user_id
           in: path
           description: The id of the user that is intended to be liked.
-          required: true,
+          required: true
           schema:
             type: string
         - name: locale
@@ -156,7 +150,7 @@ paths:
             date:
               description: The Date general HTTP header contains the date and time at which the message was originated. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date)
               schema:
-                type: Date
+                type: string
             status:
               description: Response status code.
               schema:
@@ -461,8 +455,6 @@ paths:
     post:
       summary: Super likes an user
       description: Super likes an user.
-      tags:
-        - name: Super Like
       parameters:
         - name: user_id
           in: path
@@ -563,7 +555,7 @@ paths:
             type: string
           example: webp,jpeg
       requestBody:
-        description: TODO 
+        description: TODO
         content:
           application/json:
             schema:
@@ -699,7 +691,7 @@ paths:
                         description: TODO
                         type: string
                         example: d
-                  
+
                 example:
                   status: 200
                   X-Padding: "{*meta*:{*code*:200,*requestId*:*59a45921351e3d43b07028b5*},*response*:{*venue*:{*id*:*412d2800f964a520df0c1fe3*,*name*:*Central Park*,*contact*:{*phone*:*2123106600*,*formattedPhone*:*(212) 310-6600*,*twitter*:*centralparknyc*,*instagram*:*centralparknyc*,*facebook*:*37965424481*,*facebookUsername*:*centralparknyc*,*facebookName*:*Central Park*},*location*:{*address*:*59th St to 110th St*,*crossStreet*:*5th Ave to Central Park West*,*lat*:40.78408342593807,*lng*:-73.96485328674316,*postalCode*:*10028*,*cc*:*US*,*city*:*New York*,*state*:*NY*,*country*:*United States*,*formattedAddress*:[*59th St to 110th St (5th Ave to Central Park West)*,*New York, NY 10028*,*United States*]},*canonicalUrl*:*https://foursquare.com/v/central-park/412d2800f964a520df0c1fe3*,*categories*:[{*id*:*4bf58dd8d48988d163941735*,*name*:*Park*,*pluralName*:*Parks*,*shortName*:*Park*,*icon*:{*prefix*:*https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_*,*suffix*:*.png*},*primary*:true}],*verified*:true,*stats*:{*checkinsCount*:364591,*usersCount*:311634,*tipCount*:1583,*visitsCount*:854553},*url*:*http://www.centralparknyc.org*,*likes*:{*count*:17370,*summary*:*17370 Likes*},*rating*:9.8,*ratingColor*:*00B551*,*ratingSignals*:18854,*beenHere*:{*count*:0,*unconfirmedCount*:0,*marked*:false,*lastCheckinExpiredAt*:0},*pho"
@@ -709,8 +701,6 @@ paths:
     get:
       summary: Pass (dislike) an user
       description: Pass (dislike) an user.
-      tags:
-        - name: Pass
       parameters:
         - name: user_id
           in: path
@@ -1073,8 +1063,6 @@ paths:
     post:
       summary: Boost your profile.
       description: Boost your profile.
-      tags:
-        - name: Boost
       parameters:
         - name: locale
           in: query
@@ -1290,7 +1278,7 @@ paths:
                     type: number
                     example: 0
                   expires_at:
-                    dscription: TODO
+                    description: TODO
                     type: number
                     example: 1558278911821
                   boost_id:
@@ -1323,13 +1311,11 @@ paths:
     get:
       summary: Gets a Tinder user profile.
       description: Gets information about a Tinder user profile.
-      tags:
-        - name: User
       parameters:
         - name: user_id
           in: path
           description: The Tinder user id of the profile you want to get.
-          required: false
+          required: true
           schema:
             type: string
         - name: locale
@@ -1682,13 +1668,13 @@ paths:
                           - url: https://images-ssl.gotinder.com/57dd1e83f5bec39f48194e1d/640x640_d127a410-ff04-4188-a646-0c7f76e967a8.jpg
                             height: 640
                             width: 640
-                        crop_info:  
+                        crop_info:
                           user:
                             width_pct: 1
                             x_offset_pct: 0
                             height_pct: 0.8
                             y_offset_pct: 0
-                          algo:  
+                          algo:
                             width_pct: 0.15143249928951263
                             x_offset_pct: 0.4027365744113922
                             height_pct: 0.15656615793704987
@@ -1704,15 +1690,12 @@ paths:
                     distance_mi: 7591
                     common_connections:
                     is_tinder_u: false
-
   /v2/auth/sms/send:
     servers:
       - url: https://api.gotinder.com
     post:
       summary: Sends a verification code
       description: Send by SMS a verification code to the specified number, the number format must be [country_code][state_code][cellphone_number], no plus infront of the number.
-      tags:
-          - name: Auth
       parameters:
           - name: auth_type
             in: query
@@ -1935,8 +1918,6 @@ paths:
     post:
       summary: Sends the verification code for validation
       description: Sends the verification code altogether with the cellphone number to validate them, if correct, returns a refresh token to use in the next step (/v2/auth/login/sms).
-      tags:
-        - name: Auth
       parameters:
         - name: auth_type
           in: query
@@ -2018,7 +1999,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -2347,8 +2328,6 @@ paths:
     post:
       summary: Sends the refresh token to gain an api token
       description: Sends the refresh token altogether with the phone_number (this one is not required, omit if you want) to generate among other things the api token (api_token). This is the most importante value, the api_token is used in the most important request (like, recommendations, pass, super like, etc). In the requests that the api_token is needed it is sent as a request parameter whose name is X-Auth-Token.
-      tags:
-        - name: Auth
       parameters:
         - name: locale
           in: query
@@ -2508,7 +2487,7 @@ paths:
                         _id:
                           description: TODO This value is present if the user that is doing the login is already registered (is_new_user = false).
                           type: string
-                        onboarding_token: 
+                        onboarding_token:
                           description: TODO This value is present if the user that is doing the login is a new user (is_new_user = true).
                           type: string
                         api_token:
@@ -2598,9 +2577,7 @@ paths:
       - url: https://api.gotinder.com
     post:
       summary: TODO
-      description: 
-      tags:
-        - name: Auth
+      description: TODO
       parameters:
         - name: locale
           in: query
@@ -2678,13 +2655,13 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
         - name: user-session-time-elapsed
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: number
@@ -2814,8 +2791,6 @@ paths:
     post:
       summary: Sends captcha information
       description: Sends captcha iformation for backend verification.
-      tags:
-        - name: Auth
       parameters:
         - name: locale
           in: query
@@ -3023,8 +2998,6 @@ paths:
     get:
       summary: Gets like recommendations
       description: Gets like recommendations.
-      tags:
-        - name: Recommendations
       parameters:
         - name: locale
           in: query
@@ -3337,7 +3310,7 @@ paths:
                                       properties:
                                         image:
                                           description: TODO
-                                          type: string 
+                                          type: string
                                         thumbnail:
                                           description: TODO
                                           type: string
@@ -3441,7 +3414,7 @@ paths:
                                         top_track:
                                           description: TODO
                                           type: object
-                                          properties: 
+                                          properties:
                                             id:
                                               description: TODO
                                               type: string
@@ -3853,8 +3826,6 @@ paths:
     get:
       summary: Gets profile info
       description: Gets profile info.
-      tags:
-        - name: Profile
       parameters:
         - name: include
           in: query
@@ -4106,7 +4077,7 @@ paths:
                       instagram:
                         description: Contains Instagram information (this object is empty if Instagram is not connected).
                         type: object
-                        properties: 
+                        properties:
                           completed_initial_fetch:
                             description: TODO
                             type: boolean
@@ -4142,7 +4113,7 @@ paths:
                                   type: string
                                   example: "1538529027"
                       likes:
-                        description:
+                        description: TODO
                         type: object
                         properties:
                           likes_remaining:
@@ -4427,8 +4398,6 @@ paths:
     post:
       summary: TODO
       description: TODO
-      tags:
-        - name: Profile
       parameters:
         - name: locale
           in: query
@@ -4549,7 +4518,7 @@ paths:
                       type: number
                     show_gender_on_profile:
                       description: TODO
-                      type: boolean,
+                      type: boolean
                     custom_gender:
                       description: TODO
                       type: string
@@ -4798,8 +4767,6 @@ paths:
     delete:
       summary: Deletes your Tinder account
       description: Deletes your Tinder account
-      tags:
-        - name: Profile
       parameters:
         - name: locale
           in: query
@@ -4974,8 +4941,6 @@ paths:
     post:
       summary: TODO
       description: TODO
-      tags:
-        - name: Profile
       parameters:
         - name: locale
           in: query
@@ -5193,10 +5158,8 @@ paths:
                             type: number
   /v2/account/recovery/send:
     post:
-      summary: Sends a recovery email 
+      summary: Sends a recovery email
       description: Sends a recovery email to the email specified in the requet body. Despites it says that you will be able to login with the link contained in the email, that's not gonna happen. So the phrase in the site that says "We'll email you a link that will instantly log you in" is a total bullshit, you'll have to verify your phone number first.
-      tags:
-        - name: Account
       parameters:
         - name: locale
           in: query
@@ -5267,7 +5230,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -5391,8 +5354,6 @@ paths:
     post:
       summary: Confirms the registered email
       description: Confirms the registered email.
-      tags:
-        - name: Account
       parameters:
         - name: locale
           in: query
@@ -5593,8 +5554,6 @@ paths:
     post:
       summary: TODO
       description: TODO
-      tags:
-        - name: Profile
       parameters:
         - name: locale
           in: query
@@ -5810,8 +5769,6 @@ paths:
     post:
       summary: TODO
       description: TODO
-      tags:
-        - name: Profile
       parameters:
         - name: locale
           in: query
@@ -6031,8 +5988,6 @@ paths:
     post:
       summary: Performs the user logout action
       description: Performs the user logout action.
-      tags:
-        - name: Auth
       parameters:
         - name: locale
           in: query
@@ -6225,16 +6180,12 @@ paths:
                         description: Response status code.
                         type: number
                         example: 200
-  ## /v2/push/devices/web/fNBQ4PLU3ao:APA91bHNIOaWRHmGJxb_anwv03cRAx42t0iFZuCZxUKeCrd79nZapCEhYXUCpobSuZ9RDEEVXbq-YjNoC2swWvQXUVGdJU7lozZyPK1BkZ9JUpYvOzan8VlFb54s6m9QsdNcnEw1R2HO?locale=en
-  ## /v2/push/devices/web/c_I_2Xvi-4k:APA91bH5NKvw80W2yf8MuG3Q3ypNL8O-TLGGhii2UwGrxmE89krctWUL2t6n2KaJnV60N2pCZ0eUYckumKrP_k8PeGFjnUsGzXQ7XCUpbAbqyOJb0LNslNF2YO9hsm_Nr19-e0loj9HK?locale=en
   /v2/push/devices/web/{device_code}:
     servers:
       - url: https://api.gotinder.com
     post:
       summary: TODO
       description: TODO
-      tags:
-        - name: Push
       parameters:
         - name: device_code
           in: path
@@ -6493,8 +6444,6 @@ paths:
     delete:
       summary: TODO
       description: TODO
-      tags:
-        - name: Push
       parameters:
         - name: device_code
           in: path
@@ -6743,8 +6692,6 @@ paths:
     post:
       summary: TODO
       description: TODO
-      tags:
-        - name: Meta
       parameters:
         - name: locale
           in: query
@@ -7311,8 +7258,6 @@ paths:
     get:
       summary: Generates a new token for the web socket keep alive
       description: Generates a new token for the web socket keep alive.
-      tags:
-        - name: WebSocket
       parameters:
         - name: locale
           in: query
@@ -7487,8 +7432,6 @@ paths:
     get:
       summary: TODO
       description: TODO
-      tags:
-        - name: WebSocket
       parameters:
         - name: token
           in: query
@@ -7607,15 +7550,13 @@ paths:
               description: TODO
               schema:
                 type: string
-              example: baepik3ttp56u83lqgl0  
+              example: baepik3ttp56u83lqgl0
   /v2/matches:
     servers:
       - url: https://api.gotinder.com
     get:
       summary: TODO
       description: TODO
-      tags:
-        - name: Matches
       parameters:
         - name: count
           in: query
@@ -7819,8 +7760,6 @@ paths:
     post:
       summary: Reports an user
       description: Reports an user.
-      tags:
-        - name: Report
       parameters:
         - name: user_id
           in: path
@@ -7920,7 +7859,7 @@ paths:
           schema:
             type: string
       requestBody:
-        description: TODO 
+        description: TODO
         content:
           application/json:
             schema:
@@ -8013,8 +7952,6 @@ paths:
     get:
       summary: TODO
       description: TODO
-      tags:
-        - name: Profile
       parameters:
         - name: locale
           in: query
@@ -8227,15 +8164,13 @@ paths:
                           type: string
                   photos_processing:
                     description: TODO
-                    type: boolean                  
+                    type: boolean
   /v2/onboarding/fields:
     servers:
       - url: https://api.gotinder.com
     get:
       summary: Gets the onboarding fields
       description: Gets the onboarding fields that are needed for the user Registration.
-      tags:
-        - name: Onboarding
       parameters:
         - name: locale
           in: query
@@ -8353,7 +8288,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -8476,8 +8411,6 @@ paths:
     post:
       summary: Register user
       description: Sends the user register information -> birth date, email, gender, name
-      tags:
-        - name: Onboarding
       parameters:
         - name: locale
           in: query
@@ -8601,7 +8534,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -8618,7 +8551,7 @@ paths:
           schema:
             type: string
       requestBody:
-        description: See example for more details. 
+        description: See example for more details.
         content:
           application/json:
             schema:
@@ -8805,8 +8738,6 @@ paths:
     post:
       summary: Sends the uploaded photo to the server
       description: Sends the uploaded photo to the server.
-      tags:
-        - name: Onboarding
       parameters:
         - name: locale
           in: query
@@ -8931,7 +8862,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -9114,8 +9045,6 @@ paths:
     post:
       summary: Completes the user registration process
       description: Completes the user registration process.
-      tags:
-        - name: Onboarding
       parameters:
         - name: locale
           in: query
@@ -9252,7 +9181,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -9366,8 +9295,6 @@ paths:
     delete:
       summary: Removes temporary data
       description: To be honest I don't really know what this call does, I believe, given the order it was called in the user registration process, that this call is made to delete temporary data that Tinder may have created in the process of registering the user. Another hint that reafirms the ideia is the endpoint name (/v2/onboarding/user) and the HTTP method (delete).
-      tags:
-        - name: Onboarding
       parameters:
         - name: locale
           in: query
@@ -9492,7 +9419,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -9568,8 +9495,6 @@ paths:
     put:
       summary: Don't have a clue about this call
       description: Don't have a clue about this call.
-      tags:
-        - name: Push
       parameters:
         - name: locale
           in: query
@@ -9639,7 +9564,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -9752,8 +9677,6 @@ paths:
     post:
       summary: Associates Instagram account with Tinder
       description: Associates Instagram account with Tinder.
-      tags:
-        - name: Instagram
       parameters:
         - name: locale
           in: query
@@ -9823,7 +9746,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -10051,8 +9974,6 @@ paths:
     post:
       summary: Disassociates Instagram account from Tinder
       description: Disassociates Instagram account from Tinder.
-      tags:
-        - name: Instagram
       parameters:
         - name: locale
           in: query
@@ -10122,7 +10043,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -10229,8 +10150,6 @@ paths:
     delete:
       summary: Removes a profile photo
       description: Removes a profile photo.
-      tags:
-        - name: Media
       parameters:
         - name: locale
           in: query
@@ -10300,7 +10219,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -10414,7 +10333,7 @@ paths:
                           type: object
                           properties:
                             user:
-                              description: TODO 
+                              description: TODO
                               type: object
                               properties:
                                 width_pct:
@@ -10490,8 +10409,6 @@ paths:
     get:
       summary: Get popular places.
       description: Get popular places.
-      tags:
-        - name: Location
       parameters:
         - name: locale
           in: query
@@ -10555,7 +10472,7 @@ paths:
             type: string
         - name: user-session-id
           in: header
-          description: TODO null
+          description: TODO
           required: false
           schema:
             type: string
@@ -10665,9 +10582,6 @@ paths:
     post:
       summary: Sends a promotional code, I don't know what this code refers to, it could be a month of free Tinder Plus or anything. Needs clarification.
       description: Disassociates Instagram account from Tinder.
-      tags:
-        - name: Incentives
-        - name: Clarification
       parameters:
         - name: locale
           in: query
@@ -10858,45 +10772,3 @@ paths:
                         description: Response status connected.
                         type: number
                         example: 400
-
-
-
-## POST https://api.gotinder.com/image?client_photo_id=%7BphotoId%7D?client_photo_id=ProfilePhoto1556846525000&locale=en
-# Upload de uma foto de perfil
-
-# request header
-#Accept: application/json
-#app-session-id: x
-#app-session-time-elapsed: 747826
-#app-version: 1020345
-#Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryVAm1WxzYc2R1TWRE
-#Origin: https://tinder.com
-#persistent-device-id: x
-#platform: web
-#Referer: https://tinder.com/
-#User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
-#user-session-id: x
-#user-session-time-elapsed: 747826
-#X-Auth-Token: x
-#x-supported-image-formats: webp,jpeg
-
-# Form data
-#------WebKitFormBoundaryVAm1WxzYc2R1TWRE
-#Content-Disposition: form-data; name="file"; filename="blob"
-#Content-Type: image/jpeg
-
-# response header
-#access-control-allow-credentials: true
-#access-control-allow-headers: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-#access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
-#access-control-allow-origin: https://tinder.com
-#content-encoding: gzip
-#content-length: 584
-#content-type: application/json; charset=utf-8
-#date: Fri, 03 May 2019 01:22:07 GMT
-#status: 200
-#vary: Accept-Encoding, Origin
-#via: 1.1 eb0748e1a1029699052c373701cab0cc.cloudfront.net (CloudFront)
-#x-amz-cf-id: cCSijOu0EKen4GgVKrAr_wdW13_3JKby6YyiVDdw4cwrd0SWTWUmew==
-#x-cache: Miss from cloudfront
-#x-request-id: 00et873jnuhd76ug7dhg
