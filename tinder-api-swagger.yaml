@@ -1224,6 +1224,15 @@ paths:
               schema:
                 type: number
                 example: 200
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  duration:
+                    description: Boost duration in milliseconds.
+                    type: number
+                    example: 1800000
 
   /user/{user_id}:
     servers:
