@@ -1159,66 +1159,6 @@ paths:
               schema:
                 type: string
                 example: application/json; charset=utf-8
-            Content-Length:
-              description: The Content-Length entity header indicates the size of the entity-body, in bytes, sent to the recipient. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length)
-              schema:
-                type: string
-                example: 25
-            access-control-allow-credentials:
-              description: The Access-Control-Allow-Credentials response header tells browsers whether to expose the response to frontend JavaScript code when the request's credentials mode (Request.credentials) is "include". [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials)
-              schema:
-                type: boolean
-                example: true
-            Access-Control-Allow-Headers:
-              description: The Access-Control-Allow-Headers response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers)
-              schema:
-                type: string
-                example: Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,platform,app-version,X-Auth-Token,x-accountkit-validation-code,token,fast-match-count,x-supported-image-formats,device_id,install-id,persistent-device-id,promo-code,campaign-name,app-session-id,app-session-time-elapsed,user-session-id,user-session-time-elapsed,advertising-id
-            Access-Control-Allow-Methods:
-              description: The Access-Control-Allow-Methods response header specifies the method or methods allowed when accessing the resource in response to a preflight request. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)
-              schema:
-                type: string
-                example: GET, POST, PUT, DELETE, OPTIONS
-            access-control-allow-origin:
-              description: The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)
-              schema:
-                type: string
-                example: https://tinder.com
-            Content-Encoding:
-              description: The Content-Encoding entity header is used to compress the media-type. When present, its value indicates which encodings were applied to the entity-body. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
-              schema:
-                type: string
-                example: gzip
-            Date:
-              description: The Date general HTTP header contains the date and time at which the message was originated. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date)
-              schema:
-                type: string
-                example: Mon, 29 Apr 2019 02:29:08 GMT
-            Vary:
-              description: The Vary HTTP response header determines how to match future request headers to decide whether a cached response can be used rather than requesting a fresh one from the origin server. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary)
-              schema:
-                type: string
-                example: Accept-Encoding,Origin
-            X-Request-ID:
-              description: TODO
-              schema:
-                type: string
-                example: 00af7teqbvf3q82is660
-            X-Cache:
-              description: TODO
-              schema:
-                type: string
-                example: Error from cloudfront
-            Via:
-              description: The Via general header is added by proxies, both forward and reverse proxies, and can appear in the request headers and the response headers. [developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Via)
-              schema:
-                type: string
-                example: 1.1 d07104e17906cf397b085b148825b3ed.cloudfront.net (CloudFront)
-            X-Amz-Cf-Id:
-              description: TODO
-              schema:
-                type: string
-                example: WZbbh7AT5sI6_lPxpjGDC7-vNpBcdfDnU-3RNpiQbGFRkA-bnoO14Q==
             status:
               description: TODO
               schema:
