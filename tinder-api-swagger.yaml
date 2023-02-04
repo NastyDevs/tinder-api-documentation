@@ -3482,42 +3482,6 @@ paths:
                                     string:
                                       description: TODO
                                       type: string
-                example:
-                  meta:
-                    status: 200
-                  results:
-                    - type: user
-                      user:
-                        _id: aaa
-                        bio: bbb
-                        birth_date: ccc
-                        name: ddd
-                        photos:
-                          - id: eee
-                            crop_info:
-                              user:
-                                width_pct: 1.0
-                                x_offset_pct: 1.0
-                                height_pct: 1.0
-                                y_offset_pct: 1.0
-                              algo:
-                                width_pct: 1.0
-                                x_offset_pct: 1.0
-                                height_pct: 1.0
-                                y_offset_pct: 1.0
-                              processed_by_bullseye: true
-                              user_customized: false
-                            url: fff
-                            processedFiles:
-                              - url: ggg
-                                height: 100
-                                width: 100
-                        gender: 1
-                        jobs:
-                          - title:
-                              name: hhh
-                        schools:
-                          - name: iii
         403:
           description: 'Forbidden'
           headers:
