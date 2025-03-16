@@ -73,7 +73,7 @@ The required fields are: X-Auth-Token.
     {
         Accept: 'application/json',
         app-session-id: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-        app-session-time-elapsed: ''.
+        app-session-time-elapsed: '',
         app-version: '',
         Origin: 'https://tinder.com',
         persistent-device-id: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
